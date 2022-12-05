@@ -1,12 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 
 const Login = () => {
+	const [error, setError] = useState();
 	const { signIn } = useContext(AuthContext);
 	const navigate = useNavigate();
+
+	const location = useLocation();
+	const from = location.state?.from?.pathname || "/";
+
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		const form = event.target;
@@ -17,11 +22,13 @@ const Login = () => {
 			.then((result) => {
 				const user = result.user;
 				form.reset();
-				navigate("/");
+				setError("");
+				navigate(from, { replace: true });
 				console.log(user);
 			})
 			.catch((error) => {
 				console.log(error);
+				setError(error.message);
 			});
 	};
 
@@ -37,7 +44,6 @@ const Login = () => {
 					required
 				/>
 			</Form.Group>
-
 			<Form.Group className="mb-3" controlId="formBasicPassword">
 				<Form.Label>Password</Form.Label>
 				<Form.Control
@@ -47,10 +53,14 @@ const Login = () => {
 					required
 				/>
 			</Form.Group>
-			<Form.Text className="text-danger"></Form.Text>
-			<Button variant="primary" type="submit">
+			<Form.Text className="text-danger">{error}</Form.Text> <br />
+			<br />
+			<Button className="mb-3" variant="primary" type="submit">
 				Login
 			</Button>
+			<p>
+				Create new account, <Link to="/register">Register</Link>
+			</p>
 		</Form>
 	);
 };

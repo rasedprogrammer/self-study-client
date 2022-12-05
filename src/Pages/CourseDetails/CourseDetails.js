@@ -3,8 +3,8 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
-const CourseCategory = ({ category }) => {
-	const { id, name, image, details } = category;
+const CourseDetails = ({ course }) => {
+	const { id, name, image, details } = course;
 	return (
 		<Card className="mb-4" style={{ width: "18rem" }}>
 			<Card.Img variant="top" className="img-fluid p-2" src={image} />
@@ -27,4 +27,4 @@ const CourseCategory = ({ category }) => {
 	);
 };
 
-export default CourseCategory;
+export default CourseDetails;

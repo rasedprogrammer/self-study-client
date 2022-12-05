@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaLeanpub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -20,13 +20,51 @@ const Header = () => {
 	return (
 		<Navbar collapseOnSelect expand="lg" bg="light" variant="light">
 			<Container>
-				<Navbar.Brand>Self Study</Navbar.Brand>
+				<Navbar.Brand className="text-success">
+					<FaLeanpub className="text-primary"></FaLeanpub> Self Study
+				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="me-auto">
-						<Nav.Link>Home</Nav.Link>
-						<Nav.Link>Courses</Nav.Link>
-						<Nav.Link>Blog</Nav.Link>
+						<>
+							<Link
+								style={{
+									textDecoration: "none",
+									color: "gray",
+									marginTop: "5px",
+									marginLeft: "10px",
+								}}
+								to="/"
+							>
+								Home
+							</Link>
+						</>
+						<>
+							<Link
+								style={{
+									textDecoration: "none",
+									color: "gray",
+									marginTop: "5px",
+									marginLeft: "10px",
+								}}
+								to="/courses"
+							>
+								Courses
+							</Link>
+						</>
+						<>
+							<Link
+								style={{
+									textDecoration: "none",
+									color: "gray",
+									marginTop: "5px",
+									marginLeft: "10px",
+								}}
+								to="/blog"
+							>
+								Blog
+							</Link>
+						</>
 					</Nav>
 					<Nav>
 						<>
