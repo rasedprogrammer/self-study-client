@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { ButtonGroup } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
@@ -6,12 +6,23 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const RightSideNav = () => {
-	const { googleLoginProvider } = useContext(AuthContext);
+	const { loginProvider } = useContext(AuthContext);
 
-	const googleprovider = new GoogleAuthProvider();
+	const googleProvider = new GoogleAuthProvider();
+	const githubProvider = new GithubAuthProvider();
 
 	const handleGoogleLogin = () => {
-		googleLoginProvider(googleprovider)
+		loginProvider(googleProvider)
+			.then((result) => {
+				const user = result.user;
+				console.log(user);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
+	const handleGithubLogin = () => {
+		loginProvider(githubProvider)
 			.then((result) => {
 				const user = result.user;
 				console.log(user);
@@ -30,7 +41,7 @@ const RightSideNav = () => {
 				>
 					<FaGoogle></FaGoogle> Login with Google
 				</Button>
-				<Button variant="outline-info">
+				<Button onClick={handleGithubLogin} variant="outline-info">
 					<FaGithub></FaGithub> Login with GitHub
 				</Button>
 			</ButtonGroup>
