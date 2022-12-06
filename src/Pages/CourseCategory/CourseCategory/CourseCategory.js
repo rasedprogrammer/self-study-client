@@ -1,27 +1,31 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
+import { Image } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 
 const CourseCategory = ({ category }) => {
 	const { id, name, image, details } = category;
 	return (
-		<Card className="mb-4" style={{ width: "18rem" }}>
-			<Card.Img variant="top" className="img-fluid p-2" src={image} />
+		<Card className="w-100 mb-3">
+			<Image className="w-25 m-auto p-3 " src={image}></Image>
 			<Card.Body>
-				<Card.Title>{name}</Card.Title>
-				<Card.Text>
+				<Card.Title className="text-center p-3">{name}</Card.Title>
+				<Card.Text className="text-center p-3">
 					{details.length > 250 ? (
-						<p>
-							{details.slice(0, 250) + "..."}{" "}
-							<Link to={`/categories/${id}`}>
-								<Button variant="primary">Go somewhere</Button>
-							</Link>
-						</p>
+						<p>{details.slice(0, 250) + "..."} </p>
 					) : (
 						<p>{details}</p>
 					)}
 				</Card.Text>
+				<Link
+					className="d-grid gap-2 text-decoration-none"
+					to={`/categories/${id}`}
+				>
+					<Button variant="secondary" size="lg">
+						Read More
+					</Button>
+				</Link>
 			</Card.Body>
 		</Card>
 	);

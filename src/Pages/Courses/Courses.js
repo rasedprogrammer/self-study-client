@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import CourseDetails from "../CourseDetails/CourseDetails";
 // import CourseCategory from "../CourseCategory/CourseCategory/CourseCategory";
 
