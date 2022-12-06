@@ -12,9 +12,6 @@ const Home = () => {
 			{categories.map((category) => (
 				<CourseCategory key={category.id} category={category}></CourseCategory>
 			))}
-			{categories.map((ca) => (
-				<Courses key={ca.id} category={ca}></Courses>
-			))}
 		</div>
 	);
 };
