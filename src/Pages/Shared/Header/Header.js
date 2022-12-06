@@ -20,8 +20,11 @@ const Header = () => {
 	return (
 		<Navbar collapseOnSelect expand="lg" bg="light" variant="light">
 			<Container>
-				<Navbar.Brand className="text-success">
-					<FaLeanpub className="text-primary"></FaLeanpub> Self Study
+				<Navbar.Brand>
+					<FaLeanpub className="text-primary fs-2 mb-2"></FaLeanpub>{" "}
+					<Link className="text-decoration-none text-success ms-2 fs-2">
+						Self Study
+					</Link>
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
@@ -37,32 +40,6 @@ const Header = () => {
 								to="/"
 							>
 								Home
-							</Link>
-						</>
-						<>
-							<Link
-								style={{
-									textDecoration: "none",
-									color: "gray",
-									marginTop: "5px",
-									marginLeft: "10px",
-								}}
-								to="/courses"
-							>
-								Courses
-							</Link>
-						</>
-						<>
-							<Link
-								style={{
-									textDecoration: "none",
-									color: "gray",
-									marginTop: "5px",
-									marginLeft: "10px",
-								}}
-								to="/blog"
-							>
-								Blog
 							</Link>
 						</>
 					</Nav>
