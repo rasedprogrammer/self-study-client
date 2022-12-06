@@ -22,7 +22,7 @@ const Header = () => {
 			<Container>
 				<Navbar.Brand>
 					<FaLeanpub className="text-primary fs-2 mb-2"></FaLeanpub>{" "}
-					<Link className="text-decoration-none text-success ms-2 fs-2">
+					<Link to="/" className="text-decoration-none text-success ms-2 fs-2">
 						Self Study
 					</Link>
 				</Navbar.Brand>
