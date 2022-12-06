@@ -16,12 +16,12 @@ export const routes = createBrowserRouter([
 		children: [
 			{
 				path: "/",
-				loader: () => fetch(`http://localhost:5000/categories`),
+				loader: () => fetch(`https://seft-study-server.vercel.app/categories`),
 				element: <Home></Home>,
 			},
 			{
 				path: "/courses",
-				loader: () => fetch(`http://localhost:5000/courses`),
+				loader: () => fetch(`https://seft-study-server.vercel.app/courses`),
 				element: (
 					<PrivateRoute>
 						<Courses></Courses>
@@ -35,7 +35,7 @@ export const routes = createBrowserRouter([
 			{
 				path: "/categories/:id",
 				loader: ({ params }) =>
-					fetch(`http://localhost:5000/categories/${params.id}`),
+					fetch(`https://seft-study-server.vercel.app/categories/${params.id}`),
 				element: (
 					<PrivateRoute>
 						<CourseDetailsPage></CourseDetailsPage>
